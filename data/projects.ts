@@ -8,7 +8,7 @@ export const projects = [
   {
     title: "Syntaxis",
     href: "/projetos/syntaxis",
-    image: "/projetos/syntaxis/images/logo.png",
+    image: "/projetos/syntaxis/images/Logo.png",
     description: "Sistema de gestão de materiais e controle interno de estoque.",
   },
   {
