@@ -1,63 +1,61 @@
-export default function ProjectCard() {
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+type Props = {
+  title: string;
+  href: string;
+  image: string;
+  description: string;
+};
+
+export default function ProjectCard({
+  title,
+  href,
+  image,
+  description,
+}: Props) {
   return (
-    <div className="rounded-3xl border p-10 hover:shadow-2xl transition duration-300">
-      <div className="flex justify-between items-start flex-wrap gap-4">
-        <div>
-          <span className="text-sm text-blue-600 font-semibold">
-            Projeto Acadêmico
-          </span>
-
-          <h3 className="text-4xl font-bold mt-2">
-            Syntaxis
-          </h3>
-        </div>
-
-        <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full">
-          Nota 9,8/10
-        </span>
+    <Link
+      href={href}
+      className="
+        group
+        block
+        overflow-hidden
+        rounded-3xl
+        border
+        border-white/10
+        bg-white/5
+        transition-all
+        duration-500
+        hover:scale-[1.03]
+      "
+    >
+      {/* IMAGE */}
+      <div className="relative h-32 transition-all duration-500 group-hover:h-80">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="
+            object-cover
+            opacity-80
+            group-hover:opacity-100
+            transition
+            duration-500
+          "
+        />
       </div>
 
-      <p className="text-gray-600 mt-6 text-lg">
-        Sistema desktop para gerenciamento de materiais e controle de estoque,
-        desenvolvido para auxiliar empresas na organização de entradas,
-        saídas e movimentações de produtos.
-      </p>
+      {/* TEXT */}
+      <div className="p-5">
+        <h3 className="text-xl font-bold">{title}</h3>
 
-      <div className="flex flex-wrap gap-3 mt-8">
-        <span className="border rounded-full px-4 py-2">
-          Java
-        </span>
-
-        <span className="border rounded-full px-4 py-2">
-          Java Swing
-        </span>
-
-        <span className="border rounded-full px-4 py-2">
-          WindowBuilder
-        </span>
-
-        <span className="border rounded-full px-4 py-2">
-          POO
-        </span>
+        <p className="text-zinc-400 mt-2 opacity-0 group-hover:opacity-100 transition">
+          {description}
+        </p>
       </div>
-
-      <div className="mt-8 flex gap-4">
-        <a
-          href="https://github.com/fezika18/Projeto-Syntaxis"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-black text-white px-6 py-3 rounded-xl"
-        >
-          Ver Código
-        </a>
-
-        <a
-          href="#"
-          className="border px-6 py-3 rounded-xl"
-        >
-          Ver Detalhes
-        </a>
-      </div>
-    </div>
+    </Link>
   );
 }

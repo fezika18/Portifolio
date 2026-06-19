@@ -1,46 +1,88 @@
+import Image from "next/image";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 export default function Hero() {
   return (
-    <section
-      id="inicio"
-      className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden"
-    >
-        <div className="absolute inset-0 -z-10">
-            <div className="absolute top-40 left-1/4 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl"></div>
+    <section className="min-h-[80vh] flex items-center px-6 py-20">
+      <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12">
 
-            <div className="absolute bottom-20 right-1/4 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl"></div>
+        {/* FOTO */}
+        <div className="shrink-0">
+          <div className="w-40 h-40 md:w-52 md:h-52 relative rounded-full overflow-hidden border border-white/10">
+            <Image
+              src="/profile/images/profile.jpeg"
+              alt="Foto de perfil"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-      <div className="max-w-5xl text-center">
-        <p className="text-cyan-400 font-semibold mb-4">
-          Engenharia de Software
+
+        {/* TEXTO */}
+        <div>
+          <p className="text-cyan-400 font-semibold">
+            Desenvolvedor Full Stack
+          </p>
+
+          <h1 className="text-4xl md:text-5xl font-bold mt-3 leading-tight">
+            Olá, eu sou Felipe 👋
+          </h1>
+
+          <p className="text-zinc-400 mt-5 text-lg max-w-xl">
+            Estudante de Engenharia de Software focado em criar aplicações
+            modernas, com UX bem estruturado e foco em performance.
+          </p>
+
+          {/* BOTÕES */}
+          <div className="flex gap-4 mt-6 flex-wrap">
+
+            {/* GitHub */}
+            <a
+              href="https://github.com/fezika18"
+              target="_blank"
+              className="
+                flex items-center gap-2
+                border border-white/10
+                px-5 py-3 rounded-xl
+                hover:bg-white/5
+                transition
+              "
+            >
+              <FaGithub size={18} />
+              GitHub
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/felipe-rog%C3%A9rio-a18a69235/"
+              target="_blank"
+              className="
+                flex items-center gap-2
+                bg-cyan-500
+                text-black
+                font-semibold
+                px-5 py-3 rounded-xl
+                hover:bg-cyan-400
+                transition
+              "
+            >
+              <FaLinkedin size={18} />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA ABAIXO */}
+      <div className="absolute bottom-90 left-0 right-0 flex flex-col items-center gap-2">
+        <p className="text-zinc-400 text-sm">
+          Mais abaixo você pode conferir meus projetos
         </p>
 
-        <h1 className="text-6xl md:text-8xl font-bold leading-tight mb-6">
-          Construindo soluções
-          <br />
-          para problemas reais.
-        </h1>
-
-        <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-10">
-          Sou Felipe Rogério, estudante de Engenharia de Software.
-          Atualmente desenvolvo projetos focados em organização,
-          automação e experiência do usuário.
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="#projetos"
-            className="bg-black text-white px-8 py-4 rounded-xl hover:scale-105 transition"
-          >
-            Ver Projetos
-          </a>
-
-          <a
-            href="https://github.com/fezika18"
-            target="_blank"
-            className="border px-8 py-4 rounded-xl hover:scale-105 transition"
-          >
-            GitHub
-          </a>
+        {/* seta animada */}
+        <div className="animate-bounce text-zinc-400 text-xl">
+          ↓
         </div>
       </div>
     </section>
