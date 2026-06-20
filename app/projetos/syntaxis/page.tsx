@@ -193,7 +193,7 @@ export default function SyntaxisPage() {
               controls
               preload="metadata"
               className="w-full h-full object-contain"
-              poster="/projetos/syntaxis/images/demonstracao.jpeg"
+              poster="/projetos/syntaxis/images/Demonstracao.jpeg"
             >
               Seu navegador não suporta a reprodução de vídeos.
             </video>
