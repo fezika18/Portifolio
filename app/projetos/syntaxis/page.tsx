@@ -49,7 +49,7 @@ export default function SyntaxisPage() {
         {/* CONTENT */}
         <div className="relative z-10 max-w-3xl px-6">
 
-          <span className="text-cyan-400 font-semibold">
+          <span className="text-cyan-400 font-semibold bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-800/30 text-sm">
             Projeto Acadêmico
           </span>
 
@@ -178,6 +178,26 @@ export default function SyntaxisPage() {
                 ))}
 
             </div>
+        </section>
+
+        {/* DEMONSTRAÇÃO EM VÍDEO */}
+        <section className="mt-20">
+          <h2 className="text-3xl font-bold mb-6">Demonstração Prática</h2>
+          <p className="text-zinc-400 leading-relaxed mb-6">
+            Confira no vídeo abaixo as principais funcionalidades operando em tempo real, incluindo o fluxo de login, manipulação de estoque e as regras de validação.
+          </p>
+
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-zinc-900 shadow-2xl">
+            <video
+              src="/projetos/syntaxis/videos/apresentacao.mp4" 
+              controls
+              preload="metadata"
+              className="w-full h-full object-contain"
+              poster="/projetos/syntaxis/images/demonstracao.jpeg"
+            >
+              Seu navegador não suporta a reprodução de vídeos.
+            </video>
+          </div>
         </section>
 
         {/* GITHUB */}

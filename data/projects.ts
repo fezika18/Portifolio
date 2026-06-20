@@ -21,6 +21,6 @@ export const projects = [
     title: "Unisa App",
     href: "/projetos/unisa",
     image: "/projetos/unisa/images/logo.png",
-    description: "Redesign do sistema acadêmico da universidade com foco em usabilidade.",
+    description: "Redesign do sistema acadêmico da minha universidade.",
   },  
 ];

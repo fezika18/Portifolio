@@ -28,6 +28,10 @@ export default function Contact() {
             fique à vontade para me chamar.
           </p>
 
+          <p className="text-zinc-400 mb-8">
+            Número de telefone: (11) 94729-0786
+          </p>
+
           <div className="flex flex-wrap gap-4">
 
             <a

@@ -31,8 +31,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-zinc-400 mt-5 text-lg max-w-xl">
-            Estudante de Engenharia de Software focado em criar aplicações
-            modernas, com UX bem estruturado e foco em performance.
+            Estudante de Engenharia de Software e Desenvolvedor Full Stack.
+            Gosto de unir a lógica do código com a criatividade do design para
+             criar soluções digitais incríveis.
           </p>
 
           {/* BOTÕES */}

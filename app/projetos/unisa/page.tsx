@@ -51,8 +51,8 @@ export default function TravelMatePage() {
         {/* CONTENT */}
         <div className="relative z-10 max-w-3xl px-6">
 
-          <span className="text-cyan-400 font-semibold">
-            Projeto Acadêmico
+          <span className="text-cyan-400 font-semibold bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-800/30 text-sm">
+            Projeto Pessoal
           </span>
 
           <h1 className="text-7xl font-bold mt-4">

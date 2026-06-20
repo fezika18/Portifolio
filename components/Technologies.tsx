@@ -1,10 +1,10 @@
 const technologies = [
   "Java",
-  "Vercel",
-  "Git",
-  "GitHub",
   "Python",
   "FlutterFlow",
+  "GitHub",
+  "Git",
+  "Vercel",
   "React",
   "Next.js",
   "Tailwind CSS",
