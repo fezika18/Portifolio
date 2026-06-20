@@ -66,18 +66,15 @@ export default function TravelMatePage() {
           </p>
 
           <div className="flex gap-4 mt-8">
-            <a
-              href="#details"
-              className="
-                border border-white/20
-                px-6 py-3
-                rounded-xl
-                hover:bg-white/10
-                transition
-              "
-            >
-              Ver detalhes
-            </a>
+          <button
+            onClick={() => {
+              const element = document.getElementById("details");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition text-center"
+          >
+            Ver detalhes
+          </button>
           </div>
 
         </div>

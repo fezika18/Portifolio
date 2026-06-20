@@ -74,12 +74,15 @@ export default function SyntaxisPage() {
               Ver Código
             </a>
 
-            <a
-              href="#details"
-              className="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition"
+            <button
+            onClick={() => {
+                const element = document.getElementById("details");
+                element?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition text-center"
             >
-              Ver detalhes
-            </a>
+            Ver detalhes
+            </button>
           </div>
 
         </div>
