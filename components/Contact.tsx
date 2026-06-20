@@ -5,7 +5,7 @@ export default function Contact() {
     <section className="px-6 py-24 max-w-6xl mx-auto">
 
       <h2 className="text-3xl font-bold mb-10">
-        Contato
+        Localização e Contato       
       </h2>
 
       <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -59,7 +59,7 @@ export default function Contact() {
           </div>
 
           <p className="text-zinc-500 text-sm mt-10">
-            São Paulo, Brasil • Aberto a oportunidades
+            São Paulo, Brasil • Aberto a oportunidades presenciais ou remotas
           </p>
         </div>
 

@@ -3,7 +3,7 @@ export const projects = [
     title: "Ariflux",
     href: "/projetos/ariflux",
     image: "/projetos/ariflux/images/logo.png",
-    description: "Plataforma de automação e análise de dados.",
+    description: "Empresa em startup focada em criação de sites e ecommerces.",
   },
   {
     title: "Syntaxis",

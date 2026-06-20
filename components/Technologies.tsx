@@ -1,6 +1,6 @@
 const technologies = [
   "Java",
-  "Java Swing",
+  "Vercel",
   "Git",
   "GitHub",
   "Python",
@@ -17,9 +17,6 @@ export default function Technologies() {
       className="py-32 px-6 max-w-6xl mx-auto"
     >
       <div className="text-center mb-16">
-        <p className="text-blue-600 font-semibold mb-4">
-          Tecnologias
-        </p>
 
         <h2 className="text-5xl font-bold">
           Ferramentas que utilizo

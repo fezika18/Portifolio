@@ -3,7 +3,8 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section className="min-h-[80vh] flex items-center px-6 py-20">
+    <section className="relative min-h-[80vh] flex items-center px-6 py-20">
+
       <div className="max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-12">
 
         {/* FOTO */}
@@ -37,52 +38,37 @@ export default function Hero() {
           {/* BOTÕES */}
           <div className="flex gap-4 mt-6 flex-wrap">
 
-            {/* GitHub */}
             <a
               href="https://github.com/fezika18"
               target="_blank"
-              className="
-                flex items-center gap-2
-                border border-white/10
-                px-5 py-3 rounded-xl
-                hover:bg-white/5
-                transition
-              "
+              className="flex items-center gap-2 border border-white/10 px-5 py-3 rounded-xl hover:bg-white/5 transition"
             >
               <FaGithub size={18} />
               GitHub
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/felipe-rog%C3%A9rio-a18a69235/"
               target="_blank"
-              className="
-                flex items-center gap-2
-                bg-cyan-500
-                text-black
-                font-semibold
-                px-5 py-3 rounded-xl
-                hover:bg-cyan-400
-                transition
-              "
+              className="flex items-center gap-2 bg-cyan-500 text-black font-semibold px-5 py-3 rounded-xl hover:bg-cyan-400 transition"
             >
               <FaLinkedin size={18} />
               LinkedIn
             </a>
+
           </div>
-        </div>
-      </div>
 
-      {/* CTA ABAIXO */}
-      <div className="absolute bottom-90 left-0 right-0 flex flex-col items-center gap-2">
-        <p className="text-zinc-400 text-sm">
-          Mais abaixo você pode conferir meus projetos
-        </p>
+          {/* CTA (AGORA DENTRO DO FLUXO NORMAL) */}
+          <div className="mt-10 flex flex-col items-center gap-2">
+            <p className="text-zinc-400 text-sm">
+              Mais abaixo você pode conferir meus projetos
+            </p>
 
-        {/* seta animada */}
-        <div className="animate-bounce text-zinc-400 text-xl">
-          ↓
+            <div className="animate-bounce text-zinc-400 text-xl">
+              ↓
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

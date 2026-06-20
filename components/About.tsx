@@ -4,25 +4,17 @@ export default function About() {
       id="sobre"
       className="py-32 px-6 max-w-5xl mx-auto"
     >
-      <p className="text-blue-600 font-semibold mb-4">
-        Sobre Mim
-      </p>
 
-      <h2 className="text-5xl font-bold mb-8">
-        Transformando ideias em software.
+      <h2 className="text-center text-5xl font-bold mb-8">
+        Sobre Mim
       </h2>
 
       <p className="text-lg text-gray-600 leading-relaxed">
-        Sou estudante de Engenharia de Software e tenho interesse
-        em desenvolvimento de sistemas, experiência do usuário e
-        tecnologia aplicada à resolução de problemas reais.
-
-        Meu principal projeto até o momento é o Syntaxis,
-        um sistema de gestão de materiais desenvolvido em Java,
-        que recebeu nota 9,8 durante sua avaliação acadêmica.
-
-        Atualmente estou expandindo meus conhecimentos em
-        desenvolvimento web com React, Next.js e Tailwind CSS.
+        Nasci em 2005 em São Paulo, sou apaixonado por desenvolvimento de softwares e automação.
+        Tenho experiência prática em instalação e manutenção de sistemas eletrônicos e telecomunicação, 
+        além de conhecimentos em programação Java, Python e desenvolvimento web e inglês nível Intermediário. 
+        Gosto de criar soluções tecnológicas e desenvolvo projetos pessoais frequentemente. 
+        Sou proativo, comunicativo e sempre em busca de novos aprendizados.
       </p>
     </section>
   );
