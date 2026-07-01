@@ -17,7 +17,7 @@ export default function Contact() {
             width="100%"
             height="320"
             loading="lazy"
-            className="w-full h-[320px]"
+            className="w-full h-80"
           />
         </div>
 
