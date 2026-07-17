@@ -24,10 +24,10 @@ export default function ArifluxPage() {
         </div>
 
         {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-black/40" />
 
         {/* BOTTOM FADE */}
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-linear-to-b from-transparent to-[#0a0a0a]" />
 
         {/* BACK BUTTON */}
         <button
@@ -62,12 +62,12 @@ export default function ArifluxPage() {
           {/* BUTTONS */}
           <div className="flex gap-4 mt-8">
             <a
-              href="https://www.instagram.com/arifluxdigital" // Coloque o link real do perfil de vocês aqui
+              href="https://ariflux.vercel.app/" // Coloque o link real do perfil de vocês aqui
               target="_blank"
               rel="noopener noreferrer"
               className="bg-cyan-500 text-black font-semibold px-6 py-3 rounded-xl hover:scale-105 transition"
             >
-              Acessar Instagram
+              Acessar Site
             </a>
 
             <button
@@ -161,39 +161,42 @@ export default function ArifluxPage() {
             {/* FASE 1 - ATUAL */}
             <div className="relative pl-8">
             {/* Ponto indicador ativo */}
-            <span className="absolute -left-[11px] top-1.5 bg-cyan-500 w-5 h-5 rounded-full border-4 border-[#0a0a0a] animate-pulse" />
+            <span className="absolute -left-2.75 top-1.5 bg-cyan-500 w-5 h-5 rounded-full border-4 border-[#0a0a0a] animate-pulse" />
             <span className="text-xs font-semibold text-cyan-400 bg-cyan-950/50 px-2 py-0.5 rounded-md border border-cyan-800/30">
                 Fase Atual
             </span>
             <h3 className="text-xl font-bold mt-2 text-zinc-100">Validação & Prospecção</h3>
             <p className="text-zinc-400 text-sm mt-2 leading-relaxed max-w-2xl">
-                Estruturação do canal de aquisição através do Instagram e abordagem direta de potenciais clientes. Foco em fechar o primeiro contrato de desenvolvimento + manutenção recorrente para validar a oferta.
+                Estruturação do canal de aquisição através do Instagram e abordagem direta de potenciais clientes. 
+                Foco em fechar o primeiro contrato de desenvolvimento + manutenção recorrente para validar a oferta.
             </p>
             </div>
 
             {/* FASE 2 */}
             <div className="relative pl-8">
             {/* Ponto indicador desativado */}
-            <span className="absolute -left-[7px] top-2 bg-zinc-700 w-3 h-3 rounded-full border-2 border-[#0a0a0a]" />
+            <span className="absolute -left-1.75 top-2 bg-zinc-700 w-3 h-3 rounded-full border-2 border-[#0a0a0a]" />
             <span className="text-xs font-semibold text-zinc-500 bg-zinc-900 px-2 py-0.5 rounded-md border border-zinc-800">
                 Próximo Passo
             </span>
             <h3 className="text-xl font-bold mt-2 text-zinc-300">Formalização & Infraestrutura</h3>
             <p className="text-zinc-500 text-sm mt-2 leading-relaxed max-w-2xl">
-                Com o faturamento do primeiro cliente, realizaremos a abertura do MEI para emissão de notas fiscais, contrataremos a infraestrutura de hospedagem profissional e colocaremos no ar o site institucional próprio da Ariflux.
+                Com o faturamento do primeiro cliente, realizaremos a abertura do MEI para emissão de notas fiscais, 
+                contrataremos a infraestrutura de hospedagem profissional e colocaremos no ar o site institucional próprio da Ariflux.
             </p>
             </div>
 
             {/* FASE 3 */}
             <div className="relative pl-8">
             {/* Ponto indicador desativado */}
-            <span className="absolute -left-[7px] top-2 bg-zinc-700 w-3 h-3 rounded-full border-2 border-[#0a0a0a]" />
+            <span className="absolute -left-1.75 top-2 bg-zinc-700 w-3 h-3 rounded-full border-2 border-[#0a0a0a]" />
             <span className="text-xs font-semibold text-zinc-500 bg-zinc-900 px-2 py-0.5 rounded-md border border-zinc-800">
                 Escala
             </span>
             <h3 className="text-xl font-bold mt-2 text-zinc-300">Expansão da Carteira</h3>
             <p className="text-zinc-500 text-sm mt-2 leading-relaxed max-w-2xl">
-                Automação de processos internos de deploy, criação de templates proprietários em Next.js para acelerar a entrega e expansão da receita recorrente mensal (MRR) através dos planos de manutenção.
+                Automação de processos internos de deploy, criação de templates proprietários em Next.js 
+                para acelerar a entrega e expansão da receita recorrente mensal (MRR) através dos planos de manutenção.
             </p>
             </div>
 

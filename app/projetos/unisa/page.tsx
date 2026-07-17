@@ -31,10 +31,10 @@ export default function TravelMatePage() {
         </div>
 
         {/* OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-black/40" />
 
         {/* FADE */}
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-linear-to-b from-transparent to-[#0a0a0a]" />
 
         {/* BACK BUTTON */}
         <button
@@ -226,8 +226,8 @@ export default function TravelMatePage() {
                   onClick={() => openImage(img)}
                   className="
                     relative
-                    min-w-[250px]
-                    h-[520px]
+                    min-w-62.5
+                    h-130
 
                     bg-zinc-900
 

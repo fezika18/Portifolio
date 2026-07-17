@@ -28,10 +28,10 @@ export default function SyntaxisPage() {
         </div>
 
         {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-black/40" />
 
         {/* BOTTOM FADE */}
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#0a0a0a]" />
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-linear-to-b from-transparent to-[#0a0a0a]" />
 
         {/* BACK BUTTON */}
         <button
@@ -160,27 +160,127 @@ export default function SyntaxisPage() {
             da execução das operações.
           </p>
         </section>
+
+        {/* GALERIA */}
         <section className="mt-20">
-            <h2 className="text-3xl font-bold mb-6">Imagens do Projeto</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Telas do Aplicativo
+          </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="relative">
 
-                {["/projetos/syntaxis/images/login.jpg", "/projetos/syntaxis/images/opcoes.jpg", "/projetos/syntaxis/images/codigo.jpg"].map((img) => (
+            {/* BOTÃO ESQUERDA */}
+            <button
+              onClick={() => {
+                document
+                  .getElementById("syntaxis-gallery")
+                  ?.scrollBy({
+                    left: -350,
+                    behavior: "smooth",
+                  });
+              }}
+              className="
+                absolute
+                left-0
+                top-1/2
+                -translate-y-1/2
+                z-10
+
+                w-10
+                h-10
+
+                rounded-full
+                bg-black/70
+                hover:bg-black
+
+                transition
+              "
+            >
+              ←
+            </button>
+
+            {/* GALERIA */}
+            <div
+              id="syntaxis-gallery"
+              className="
+                flex
+                gap-6
+                overflow-x-auto
+                scrollbar-hide
+                px-12
+                py-2
+              "
+            >
+
+              {[
+                "/projetos/syntaxis/images/login.jpg",
+                "/projetos/syntaxis/images/opcoes.jpg",
+              ].map((img) => (
                 <div
-                    key={img}
-                    onClick={() => openImage(img)}
-                    className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 cursor-pointer group"
+                  key={img}
+                  onClick={() => openImage(img)}
+                  className="
+                    relative
+                    min-w-102.5
+                    h-130
+
+                    overflow-hidden
+                    rounded-xl
+
+                    border
+                    border-white/10
+
+                    cursor-pointer
+                    group
+                  "
                 >
-                    <Image
+                  <Image
                     src={img}
                     alt="Syntaxis"
                     fill
-                    className="object-cover group-hover:scale-105 transition duration-300"
-                    />
+                    className="
+                      object-cover
+                      group-hover:scale-105
+                      transition
+                      duration-300
+                    "
+                  />
                 </div>
-                ))}
+              ))}
 
             </div>
+
+            {/* BOTÃO DIREITA */}
+            <button
+              onClick={() => {
+                document
+                  .getElementById("syntaxis-gallery")
+                  ?.scrollBy({
+                    left: 350,
+                    behavior: "smooth",
+                  });
+              }}
+              className="
+                absolute
+                right-0
+                top-1/2
+                -translate-y-1/2
+                z-10
+
+                w-10
+                h-10
+
+                rounded-full
+                bg-black/70
+                hover:bg-black
+
+                transition
+              "
+            >
+              →
+            </button>
+
+          </div>
         </section>
 
         {/* DEMONSTRAÇÃO EM VÍDEO */}

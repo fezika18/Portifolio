@@ -164,13 +164,13 @@ export default function ProjectRow() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="min-w-[380px] md:min-w-[420px] snap-center"
+              className="min-w-95 md:min-w-105 snap-center"
             >
               <ProjectCard {...project} />
             </div>
           ))}
 
-          <div className="min-w-[380px] md:min-w-[420px] snap-center">
+          <div className="min-w-95 md:min-w-105 snap-center">
             <div className="
               h-full rounded-3xl
               border border-dashed border-white/20

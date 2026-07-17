@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="shrink-0">
           <div className="w-40 h-40 md:w-52 md:h-52 relative rounded-full overflow-hidden border border-white/10">
             <Image
-              src="/profile/images/profile.jpeg"
+              src="/profile/images/profile.jpg"
               alt="Foto de perfil"
               fill
               className="object-cover"
