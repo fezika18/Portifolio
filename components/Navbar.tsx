@@ -63,13 +63,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* NOME */}
-        <h1 className="font-bold text-xl tracking-tight text-white">
-          Felipe Rogério
+        <h1 className="font-bold text-sm sm:text-xl tracking-tight text-white leading-tight">
+          <span className="sm:hidden">Felipe<br />Rogério</span>
+          <span className="hidden sm:inline">Felipe Rogério</span>
         </h1>
 
         {/* LINKS E BOTÕES DE IDIOMA E TEMA NO TOPO DIREITO */}
-        <div className="flex items-center gap-6">
-          <ul className="flex gap-8 text-sm font-medium">
+        <div className="flex items-center gap-2 sm:gap-6">
+          <ul className="flex gap-3 sm:gap-8 text-xs sm:text-sm font-medium">
             {navLinks.map((link) => (
               <li key={link.id}>
                 <button
@@ -87,7 +88,7 @@ export default function Navbar() {
           </ul>
 
           {/* BOTÕES DISCRETOS */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3">
             {/* BOTÃO IDIOMA */}
             <button
               onClick={toggleLanguage}
