@@ -1,3 +1,7 @@
+"use client";
+
+import { usePortfolio } from "@/context/PortfolioContext";
+
 const technologies = [
   "Java",
   "Python",
@@ -6,7 +10,7 @@ const technologies = [
   "Git",
   "VsCode",
   "Eclipse IDE",
-  "Hostinger",
+  "Power BI",
   "Vercel",
   "React",
   "Next.js",
@@ -14,6 +18,8 @@ const technologies = [
 ];
 
 export default function Technologies() {
+  const { t } = usePortfolio();
+
   return (
     <section
       id="tecnologias"
@@ -22,7 +28,7 @@ export default function Technologies() {
       <div className="text-center mb-16">
 
         <h2 className="text-5xl font-bold">
-          Ferramentas que utilizo
+          {t.technologies.title}
         </h2>
       </div>
 

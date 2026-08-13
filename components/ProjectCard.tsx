@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePortfolio } from "@/context/PortfolioContext";
+import { Language } from "@/data/translations";
 
 type Props = {
   title: string;
   href: string;
   image: string;
-  description: string;
+  description: Record<Language, string>;
 };
 
 export default function ProjectCard({
@@ -16,6 +18,8 @@ export default function ProjectCard({
   image,
   description,
 }: Props) {
+  const { language } = usePortfolio();
+
   return (
     <Link
       href={href}
@@ -53,7 +57,7 @@ export default function ProjectCard({
         <h3 className="text-xl font-bold">{title}</h3>
 
         <p className="text-zinc-400 mt-2 opacity-0 group-hover:opacity-100 transition">
-          {description}
+          {description[language]}
         </p>
       </div>
     </Link>

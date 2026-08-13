@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { usePortfolio } from "@/context/PortfolioContext";
 
 export default function Hero() {
+  const { t } = usePortfolio();
+
   return (
     <section className="relative min-h-[80vh] flex items-center px-6 py-20">
 
@@ -23,17 +28,15 @@ export default function Hero() {
         {/* TEXTO */}
         <div>
           <p className="text-cyan-400 font-semibold">
-            Desenvolvedor Full Stack
+            {t.hero.role}
           </p>
 
           <h1 className="text-4xl md:text-5xl font-bold mt-3 leading-tight">
-            Olá, eu sou Felipe 👋
+            {t.hero.greeting}
           </h1>
 
           <p className="text-zinc-400 mt-5 text-lg max-w-xl">
-            Estudante de Engenharia de Software e Desenvolvedor Full Stack.
-            Gosto de unir a lógica do código com a criatividade do design para
-             criar soluções digitais incríveis.
+            {t.hero.bio}
           </p>
 
           {/* BOTÕES */}
@@ -45,7 +48,7 @@ export default function Hero() {
               className="flex items-center gap-2 border border-white/10 px-5 py-3 rounded-xl hover:bg-white/5 transition"
             >
               <FaGithub size={18} />
-              GitHub
+              {t.hero.github}
             </a>
 
             <a
@@ -54,7 +57,7 @@ export default function Hero() {
               className="flex items-center gap-2 bg-cyan-500 text-black font-semibold px-5 py-3 rounded-xl hover:bg-cyan-400 transition"
             >
               <FaLinkedin size={18} />
-              LinkedIn
+              {t.hero.linkedin}
             </a>
 
           </div>
@@ -62,7 +65,7 @@ export default function Hero() {
           {/* CTA (AGORA DENTRO DO FLUXO NORMAL) */}
           <div className="mt-10 flex flex-col items-center gap-2">
             <p className="text-zinc-400 text-sm">
-              Mais abaixo você pode conferir meus projetos
+              {t.hero.scrollDown}
             </p>
 
             <div className="animate-bounce text-zinc-400 text-xl">

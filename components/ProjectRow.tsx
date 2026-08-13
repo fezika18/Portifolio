@@ -3,9 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { projects } from "@/data/projects";
+import { usePortfolio } from "@/context/PortfolioContext";
 
 export default function ProjectRow() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = usePortfolio();
 
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(true);
@@ -101,7 +103,7 @@ export default function ProjectRow() {
   return (
     <section className="px-6 py-14">
       <h2 className="text-5xl font-bold mb-10 tracking-tight">
-        Projetos
+        {t.projects.title}
       </h2>
 
       <div className="relative group">
@@ -179,7 +181,7 @@ export default function ProjectRow() {
               bg-white/5
               transition
             ">
-              Mais projetos em breve...
+              {t.projects.moreComingSoon}
             </div>
           </div>
         </div>

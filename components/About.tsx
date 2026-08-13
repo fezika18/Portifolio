@@ -1,4 +1,10 @@
+"use client";
+
+import { usePortfolio } from "@/context/PortfolioContext";
+
 export default function About() {
+  const { t } = usePortfolio();
+
   return (
     <section
       id="sobre"
@@ -6,36 +12,44 @@ export default function About() {
     >
 
       <h2 className="text-center text-5xl font-bold mb-8">
-        Sobre Mim
+        {t.about.title}
       </h2>
 
       <div className="text-center text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Paulistano nascido em 2005, sou apaixonado por tecnologia, 
-        automação e desenvolvimento de software. 
-        Unindo minha experiência prática em sistemas eletrônicos e 
-        telecomunicações com a programação, busco criar soluções 
-        inteligentes e eficientes.
+        {t.about.bio1}
         <br /><br />
 
         {/* Linha sutil de destaque acadêmico */}
         <p className="text-sm text-cyan-400 bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-800/30 mb-6 inline-block">
-        🎓 Engenharia de Software — Conclusão em Dez/2027
+          {t.about.badge}
         </p>
 
         <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        O que trago na minha bagagem:
+          {t.about.baggageTitle}
         </p>
         <br /><br />
-        • Programação: Java, Python e Desenvolvimento Web (Full Stack).
+        {t.about.bullet1}
         <br /><br />
-        • Hardware & Infra: Manutenção de sistemas eletrônicos e telecomunicação.
+        {t.about.bullet2}
         <br /><br />
-        • Idiomas: Inglês Intermediário.
+        {t.about.bullet3}
         <br /><br />
-        Movido pela curiosidade, estou constantemente criando 
-        projetos pessoais para testar novas ideias e expandir 
-        meus conhecimentos.
+        {t.about.closing}
       </div>
+
+      {/* SUBSEÇÃO: OBJETIVO */}
+      <div className="mt-20 text-center max-w-3xl mx-auto">
+        <h3 className="text-3xl font-bold mb-6">
+          {t.about.objectiveTitle}
+        </h3>
+
+        <div className="text-lg text-gray-600 leading-relaxed space-y-6">
+          <p>{t.about.objectiveP1}</p>
+          <p>{t.about.objectiveP2}</p>
+          <p>{t.about.objectiveP3}</p>
+        </div>
+      </div>
+
     </section>
   );
 }

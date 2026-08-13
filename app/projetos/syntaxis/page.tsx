@@ -3,12 +3,15 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { usePortfolio } from "@/context/PortfolioContext";
+import { FiGlobe, FiSun, FiMoon } from "react-icons/fi";
 
 export default function SyntaxisPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const openImage = (src: string) => setSelectedImage(src);
   const closeImage = () => setSelectedImage(null);
   const router = useRouter();
+  const { language, theme, toggleLanguage, toggleTheme } = usePortfolio();
 
   return (
     <main className="min-h-screen text-white bg-[#0a0a0a]">
@@ -43,14 +46,40 @@ export default function SyntaxisPage() {
             z-20
           "
         >
-          ← Voltar
+          {language === "pt" ? "← Voltar" : "← Back"}
         </button>
+
+        {/* CONTROLES DISCRETOS NO TOPO DIREITO */}
+        <div className="absolute top-6 right-6 z-20 flex items-center gap-3">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 bg-white/5 backdrop-blur-md"
+            title={language === "pt" ? "Mudar para Inglês" : "Switch to Portuguese"}
+            aria-label="Alternar idioma"
+          >
+            <FiGlobe size={14} className="text-cyan-400" />
+            <span>{language === "pt" ? "PT" : "EN"}</span>
+          </button>
+
+          <button
+            onClick={toggleTheme}
+            className="text-xs text-zinc-400 hover:text-white transition p-1.5 rounded-lg border border-white/10 hover:border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center"
+            title={theme === "dark" ? "Mudar para tema claro" : "Mudar para tema escuro"}
+            aria-label="Alternar tema"
+          >
+            {theme === "dark" ? (
+              <FiSun size={15} className="text-amber-400" />
+            ) : (
+              <FiMoon size={15} className="text-indigo-400" />
+            )}
+          </button>
+        </div>
 
         {/* CONTENT */}
         <div className="relative z-10 max-w-3xl px-6">
 
           <span className="text-cyan-400 font-semibold bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-800/30 text-sm">
-            Projeto Acadêmico
+            {language === "pt" ? "Projeto Acadêmico" : "Academic Project"}
           </span>
 
           <h1 className="text-7xl font-bold mt-4">
@@ -58,9 +87,9 @@ export default function SyntaxisPage() {
           </h1>
 
           <p className="text-zinc-300 text-xl mt-6 leading-relaxed">
-            Sistema desktop para gestão de materiais e controle de estoque
-            desenvolvido em Java, com foco em organização, rastreabilidade e
-            validação de operações.
+            {language === "pt"
+              ? "Sistema desktop para gestão de materiais e controle de estoque desenvolvido em Java, com foco em organização, rastreabilidade e validação de operações."
+              : "Desktop system for material management and inventory control developed in Java, focused on organization, traceability, and operation validation."}
           </p>
 
           {/* BUTTONS */}
@@ -71,17 +100,17 @@ export default function SyntaxisPage() {
               rel="noopener noreferrer"
               className="bg-cyan-500 text-black font-semibold px-6 py-3 rounded-xl hover:scale-105 transition"
             >
-              Ver Código
+              {language === "pt" ? "Ver Código" : "View Code"}
             </a>
 
             <button
-            onClick={() => {
+              onClick={() => {
                 const element = document.getElementById("details");
                 element?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition text-center"
+              }}
+              className="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition text-center"
             >
-            Ver detalhes
+              {language === "pt" ? "Ver detalhes" : "View details"}
             </button>
           </div>
 
@@ -92,7 +121,7 @@ export default function SyntaxisPage() {
       <section id="details" className="max-w-5xl mx-auto px-6 py-24">
 
         <span className="text-cyan-400 font-semibold">
-          Visão Geral
+          {language === "pt" ? "Visão Geral" : "Overview"}
         </span>
 
         <div className="mt-6 flex gap-4 flex-wrap text-sm text-zinc-300">
@@ -112,59 +141,66 @@ export default function SyntaxisPage() {
 
         {/* PROBLEM */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-6">Problema</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            {language === "pt" ? "Problema" : "Problem"}
+          </h2>
           <p className="text-zinc-400 leading-relaxed">
-            Empresas e departamentos frequentemente enfrentam dificuldades
-            para controlar a entrada e saída de materiais, resultando em
-            desperdícios, falta de itens essenciais e perda de organização.
+            {language === "pt"
+              ? "Empresas e departamentos frequentemente enfrentam dificuldades para controlar a entrada e saída de materiais, resultando em desperdícios, falta de itens essenciais e perda de organização."
+              : "Companies and departments frequently face difficulties controlling material inflow and outflow, leading to waste, stockouts, and disorganization."}
           </p>
         </section>
 
         {/* SOLUTION */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-6">Solução</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            {language === "pt" ? "Solução" : "Solution"}
+          </h2>
           <p className="text-zinc-400 leading-relaxed">
-            O Syntaxis foi desenvolvido para centralizar o gerenciamento de
-            materiais, permitindo cadastro de produtos, controle de estoque,
-            movimentações e acompanhamento das alterações realizadas pelos usuários.
+            {language === "pt"
+              ? "O Syntaxis foi desenvolvido para centralizar o gerenciamento de materiais, permitindo cadastro de produtos, controle de estoque, movimentações e acompanhamento das alterações realizadas pelos usuários."
+              : "Syntaxis was developed to centralize material management, allowing product registration, inventory tracking, stock movements, and audit trails for user actions."}
           </p>
         </section>
 
         {/* FEATURES */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-6">Funcionalidades</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            {language === "pt" ? "Funcionalidades" : "Features"}
+          </h2>
 
           <ul className="space-y-3 text-zinc-400">
-            <li>✓ Login de usuários</li>
-            <li>✓ Cadastro de materiais</li>
-            <li>✓ Atualização de estoque</li>
-            <li>✓ Controle de entradas e saídas</li>
-            <li>✓ Busca de produtos</li>
-            <li>✓ Registro de movimentações</li>
-            <li>✓ Validação contra estoque negativo</li>
-            <li>✓ Validação contra produtos duplicados</li>
+            <li>✓ {language === "pt" ? "Login de usuários" : "User authentication login"}</li>
+            <li>✓ {language === "pt" ? "Cadastro de materiais" : "Material registration"}</li>
+            <li>✓ {language === "pt" ? "Atualização de estoque" : "Stock level updates"}</li>
+            <li>✓ {language === "pt" ? "Controle de entradas e saídas" : "Inflow and outflow tracking"}</li>
+            <li>✓ {language === "pt" ? "Busca de produtos" : "Product search filtering"}</li>
+            <li>✓ {language === "pt" ? "Registro de movimentações" : "Movement history logging"}</li>
+            <li>✓ {language === "pt" ? "Validação contra estoque negativo" : "Negative stock validation"}</li>
+            <li>✓ {language === "pt" ? "Validação contra produtos duplicados" : "Duplicate product validation"}</li>
           </ul>
         </section>
 
         {/* CHALLENGE */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-6">Desafio Técnico</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            {language === "pt" ? "Desafio Técnico" : "Technical Challenge"}
+          </h2>
           <p className="text-zinc-400 leading-relaxed">
-            Durante os testes foi identificado um problema na atualização
-            e remoção de produtos após a utilização da busca. O sistema
-            utilizava o índice da lista original em vez da lista filtrada,
-            causando inconsistências na seleção dos itens.
+            {language === "pt"
+              ? "Durante os testes foi identificado um problema na atualização e remoção de produtos após a utilização da busca. O sistema utilizava o índice da lista original em vez da lista filtrada, causando inconsistências na seleção dos itens."
+              : "During testing, an issue occurred when updating or deleting products after using search filters. The system used original list indices instead of filtered ones, creating item selection mismatches."}
             <br /><br />
-            A solução consistiu em localizar o produto pelo nome selecionado
-            na tabela e recuperar sua posição correta na lista principal antes
-            da execução das operações.
+            {language === "pt"
+              ? "A solução consistiu em localizar o produto pelo nome selecionado na tabela e recuperar sua posição correta na lista principal antes da execução das operações."
+              : "The solution was resolving products by selected table row identifier to retrieve their true position in the main list before performing operations."}
           </p>
         </section>
 
         {/* GALERIA */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold mb-6">
-            Telas do Aplicativo
+            {language === "pt" ? "Telas do Aplicativo" : "App Screenshots"}
           </h2>
 
           <div className="relative">
@@ -285,9 +321,13 @@ export default function SyntaxisPage() {
 
         {/* DEMONSTRAÇÃO EM VÍDEO */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-6">Demonstração Prática</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            {language === "pt" ? "Demonstração Prática" : "Live Demo"}
+          </h2>
           <p className="text-zinc-400 leading-relaxed mb-6">
-            Confira no vídeo abaixo as principais funcionalidades operando em tempo real, incluindo o fluxo de login, manipulação de estoque e as regras de validação.
+            {language === "pt"
+              ? "Confira no vídeo abaixo as principais funcionalidades operando em tempo real, incluindo o fluxo de login, manipulação de estoque e as regras de validação."
+              : "Check out the video below to see core features running live, including authentication flow, stock manipulation, and validation logic."}
           </p>
 
           <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-zinc-900 shadow-2xl">
@@ -298,7 +338,7 @@ export default function SyntaxisPage() {
               className="w-full h-full object-contain"
               poster="/projetos/syntaxis/images/Demonstracao.jpeg"
             >
-              Seu navegador não suporta a reprodução de vídeos.
+              {language === "pt" ? "Seu navegador não suporta a reprodução de vídeos." : "Your browser does not support HTML video playback."}
             </video>
           </div>
         </section>
@@ -311,26 +351,26 @@ export default function SyntaxisPage() {
             rel="noopener noreferrer"
             className="inline-block bg-cyan-500 text-black font-semibold px-6 py-3 rounded-xl hover:scale-105 transition"
           >
-            Ver Projeto no GitHub
+            {language === "pt" ? "Ver Projeto no GitHub" : "View Project on GitHub"}
           </a>
         </section>
 
       </section>
       {selectedImage && (
-  <div
-    onClick={closeImage}
-    className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
-  >
-    <div className="relative w-[90vw] h-[90vh]">
-      <Image
-        src={selectedImage}
-        alt="Imagem expandida"
-        fill
-        className="object-contain"
-      />
-    </div>
-  </div>
-)}
+        <div
+          onClick={closeImage}
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+        >
+          <div className="relative w-[90vw] h-[90vh]">
+            <Image
+              src={selectedImage}
+              alt="Imagem expandida"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      )}
     </main>
   );
 }

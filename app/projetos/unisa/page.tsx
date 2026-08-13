@@ -3,15 +3,17 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { usePortfolio } from "@/context/PortfolioContext";
+import { FiGlobe, FiSun, FiMoon } from "react-icons/fi";
 
-export default function TravelMatePage() {
+export default function UnisaPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const openImage = (src: string) => setSelectedImage(src);
   const closeImage = () => setSelectedImage(null);
 
   const router = useRouter();
-  
+  const { language, theme, toggleLanguage, toggleTheme } = usePortfolio();
 
   return (
     <main className="min-h-screen text-white bg-[#0a0a0a]">
@@ -46,14 +48,40 @@ export default function TravelMatePage() {
             z-20
           "
         >
-          ← Voltar
+          {language === "pt" ? "← Voltar" : "← Back"}
         </button>
+
+        {/* CONTROLES DISCRETOS NO TOPO DIREITO */}
+        <div className="absolute top-6 right-6 z-20 flex items-center gap-3">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 bg-white/5 backdrop-blur-md"
+            title={language === "pt" ? "Mudar para Inglês" : "Switch to Portuguese"}
+            aria-label="Alternar idioma"
+          >
+            <FiGlobe size={14} className="text-cyan-400" />
+            <span>{language === "pt" ? "PT" : "EN"}</span>
+          </button>
+
+          <button
+            onClick={toggleTheme}
+            className="text-xs text-zinc-400 hover:text-white transition p-1.5 rounded-lg border border-white/10 hover:border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center"
+            title={theme === "dark" ? "Mudar para tema claro" : "Mudar para tema escuro"}
+            aria-label="Alternar tema"
+          >
+            {theme === "dark" ? (
+              <FiSun size={15} className="text-amber-400" />
+            ) : (
+              <FiMoon size={15} className="text-indigo-400" />
+            )}
+          </button>
+        </div>
 
         {/* CONTENT */}
         <div className="relative z-10 max-w-3xl px-6">
 
           <span className="text-cyan-400 font-semibold bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-800/30 text-sm">
-            Projeto Pessoal
+            {language === "pt" ? "Projeto Pessoal" : "Personal Project"}
           </span>
 
           <h1 className="text-7xl font-bold mt-4">
@@ -61,21 +89,21 @@ export default function TravelMatePage() {
           </h1>
 
           <p className="text-zinc-300 text-xl mt-6 leading-relaxed">
-            Aplicativo mobile desenvolvido para repensar a experiência
-            acadêmica dos alunos da universidade, tornando o acesso às
-            informações mais rápido, intuitivo e organizado.
+            {language === "pt"
+              ? "Aplicativo mobile desenvolvido para repensar a experiência acadêmica dos alunos da universidade, tornando o acesso às informações mais rápido, intuitivo e organizado."
+              : "Mobile application developed to rethink university student academic experience, making information access faster, intuitive, and organized."}
           </p>
 
           <div className="flex gap-4 mt-8">
-          <button
-            onClick={() => {
-              const element = document.getElementById("details");
-              element?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition text-center"
-          >
-            Ver detalhes
-          </button>
+            <button
+              onClick={() => {
+                const element = document.getElementById("details");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="border border-white/20 px-6 py-3 rounded-xl hover:bg-white/10 transition text-center"
+            >
+              {language === "pt" ? "Ver detalhes" : "View details"}
+            </button>
           </div>
 
         </div>
@@ -89,7 +117,7 @@ export default function TravelMatePage() {
 
         {/* STACK */}
         <span className="text-cyan-400 font-semibold">
-          Visão Geral
+          {language === "pt" ? "Visão Geral" : "Overview"}
         </span>
 
         <div className="mt-6 flex gap-4 flex-wrap text-sm text-zinc-300">
@@ -115,58 +143,59 @@ export default function TravelMatePage() {
         {/* PROBLEMA */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold mb-6">
-            Problema
+            {language === "pt" ? "Problema" : "Problem"}
           </h2>
 
           <p className="text-zinc-400 leading-relaxed">
-            Muitos alunos relatavam dificuldade para encontrar
-            informações importantes no sistema acadêmico atual.
+            {language === "pt"
+              ? "Muitos alunos relatavam dificuldade para encontrar informações importantes no sistema acadêmico atual."
+              : "Many students reported difficulty finding essential information in the existing academic portal system."}
             <br /><br />
-            Além da navegação complexa, a grande quantidade de seções
-            e informações distribuídas em diferentes áreas tornava a
-            experiência pouco intuitiva e mais lenta do que o necessário.
+            {language === "pt"
+              ? "Além da navegação complexa, a grande quantidade de seções e informações distribuídas em diferentes áreas tornava a experiência pouco intuitiva e mais lenta do que o necessário."
+              : "Beyond complex navigation, numerous sections spread across disparate areas made user experience unintuitive and slower than necessary."}
           </p>
         </section>
 
         {/* SOLUÇÃO */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold mb-6">
-            Solução
+            {language === "pt" ? "Solução" : "Solution"}
           </h2>
 
           <p className="text-zinc-400 leading-relaxed">
-            O Unisa App foi desenvolvido com foco em experiência do usuário,
-            reorganizando as funcionalidades mais utilizadas pelos estudantes
-            em uma interface simples e moderna.
+            {language === "pt"
+              ? "O Unisa App foi desenvolvido com foco em experiência do usuário, reorganizando as funcionalidades mais utilizadas pelos estudantes em uma interface simples e moderna."
+              : "Unisa App was created focusing on user experience, reorganizing frequently used student features into a sleek, simple interface."}
             <br /><br />
-            O objetivo foi reduzir a quantidade de cliques necessários para
-            acessar informações acadêmicas importantes e melhorar a clareza
-            da navegação.
+            {language === "pt"
+              ? "O objetivo foi reduzir a quantidade de cliques necessários para acessar informações acadêmicas importantes e melhorar a clareza da navegação."
+              : "The objective was reducing required clicks to access key academic data and improving overall navigation clarity."}
           </p>
         </section>
 
         {/* FUNCIONALIDADES */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold mb-6">
-            Funcionalidades
+            {language === "pt" ? "Funcionalidades" : "Features"}
           </h2>
 
           <ul className="space-y-3 text-zinc-400">
-            <li>✓ Login do aluno</li>
-            <li>✓ Consulta de notas</li>
-            <li>✓ Visualização de horários</li>
-            <li>✓ Informações financeiras</li>
-            <li>✓ Acesso rápido aos serviços acadêmicos</li>
-            <li>✓ Navegação simplificada</li>
-            <li>✓ Interface responsiva</li>
-            <li>✓ Organização por prioridade de uso</li>
+            <li>✓ {language === "pt" ? "Login do aluno" : "Student authentication login"}</li>
+            <li>✓ {language === "pt" ? "Consulta de notas" : "Grades and transcript viewing"}</li>
+            <li>✓ {language === "pt" ? "Visualização de horários" : "Class timetable schedule"}</li>
+            <li>✓ {language === "pt" ? "Informações financeiras" : "Financial statement info"}</li>
+            <li>✓ {language === "pt" ? "Acesso rápido aos serviços acadêmicos" : "Quick access to academic services"}</li>
+            <li>✓ {language === "pt" ? "Navegação simplificada" : "Simplified navigation"}</li>
+            <li>✓ {language === "pt" ? "Interface responsiva" : "Responsive mobile interface"}</li>
+            <li>✓ {language === "pt" ? "Organização por prioridade de uso" : "Usage-priority layout organization"}</li>
           </ul>
         </section>
 
         {/* GALERIA */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold mb-6">
-            Telas do Aplicativo
+            {language === "pt" ? "Telas do Aplicativo" : "App Screenshots"}
           </h2>
 
           <div className="relative">
@@ -291,33 +320,34 @@ export default function TravelMatePage() {
         {/* DESAFIO */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold mb-6">
-            Desafio de UX
+            {language === "pt" ? "Desafio de UX" : "UX Challenge"}
           </h2>
 
           <p className="text-zinc-400 leading-relaxed">
-            O principal desafio foi reorganizar uma grande quantidade de
-            funcionalidades acadêmicas sem comprometer a simplicidade da
-            navegação.
+            {language === "pt"
+              ? "O principal desafio foi reorganizar uma grande quantidade de funcionalidades acadêmicas sem comprometer a simplicidade da navegação."
+              : "The primary challenge was reorganizing a massive set of academic features without sacrificing simplicity."}
             <br /><br />
-            Foi necessário identificar quais informações eram mais acessadas
-            pelos alunos e estruturar a interface priorizando rapidez e
-            facilidade de uso.
+            {language === "pt"
+              ? "Foi necessário identificar quais informações eram mais acessadas pelos alunos e estruturar a interface priorizando rapidez e facilidade de uso."
+              : "It required identifying which data points students accessed most frequently and structuring the UI to prioritize speed and usability."}
           </p>
         </section>
 
         {/* APRENDIZADOS */}
         <section className="mt-20">
           <h2 className="text-3xl font-bold mb-6">
-            Aprendizados
+            {language === "pt" ? "Aprendizados" : "Learnings"}
           </h2>
 
           <p className="text-zinc-400 leading-relaxed">
-            Este projeto reforçou a importância de compreender as dores reais
-            dos usuários antes de iniciar o desenvolvimento de uma solução.
+            {language === "pt"
+              ? "Este projeto reforçou a importância de compreender as dores reais dos usuários antes de iniciar o desenvolvimento de uma solução."
+              : "This project reinforced the importance of understanding actual user pain points before architecting a digital solution."}
             <br /><br />
-            Durante sua construção aprofundei conhecimentos sobre UX,
-            arquitetura de informação, organização de interfaces e
-            desenvolvimento de aplicações mobile.
+            {language === "pt"
+              ? "Durante sua construção aprofundei conhecimentos sobre UX, arquitetura de informação, organização de interfaces e desenvolvimento de aplicações mobile."
+              : "During development, I deepened my skills in UX design, information architecture, interface layout, and mobile app building."}
           </p>
         </section>
 

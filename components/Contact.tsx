@@ -1,11 +1,16 @@
+"use client";
+
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { usePortfolio } from "@/context/PortfolioContext";
 
 export default function Contact() {
+  const { t } = usePortfolio();
+
   return (
     <section className="px-6 py-24 max-w-6xl mx-auto">
 
       <h2 className="text-3xl font-bold mb-10">
-        Localização e Contato       
+        {t.contact.title}
       </h2>
 
       <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -24,12 +29,11 @@ export default function Contact() {
         {/* CONTATO */}
         <div>
           <p className="text-zinc-400 mb-8">
-            Se quiser conversar sobre oportunidades, projetos ou vagas,
-            fique à vontade para me chamar.
+            {t.contact.description}
           </p>
 
           <p className="text-zinc-400 mb-8">
-            Número de telefone: (11) 94729-0786
+            {t.contact.phone}
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -39,7 +43,7 @@ export default function Contact() {
               className="flex items-center gap-2 bg-cyan-500 text-black font-semibold px-5 py-3 rounded-xl hover:bg-cyan-400 transition"
             >
               <FaEnvelope />
-              Email
+              {t.contact.email}
             </a>
 
             <a
@@ -48,7 +52,7 @@ export default function Contact() {
               className="flex items-center gap-2 border border-white/10 px-5 py-3 rounded-xl hover:bg-white/5 transition"
             >
               <FaGithub />
-              GitHub
+              {t.contact.github}
             </a>
 
             <a
@@ -57,13 +61,13 @@ export default function Contact() {
               className="flex items-center gap-2 border border-white/10 px-5 py-3 rounded-xl hover:bg-white/5 transition"
             >
               <FaLinkedin />
-              LinkedIn
+              {t.contact.linkedin}
             </a>
 
           </div>
 
           <p className="text-zinc-500 text-sm mt-10">
-            São Paulo, Brasil • Aberto a oportunidades presenciais ou remotas
+            {t.contact.locationTag}
           </p>
         </div>
 
